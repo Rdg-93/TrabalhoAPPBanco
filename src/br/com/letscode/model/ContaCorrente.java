@@ -1,8 +1,6 @@
 package br.com.letscode.model;
 
 public class ContaCorrente implements Conta {
-
-    private Pessoa pessoa;
     private Cliente cliente;
     private static int Nconta = 1;
 
@@ -19,7 +17,8 @@ public class ContaCorrente implements Conta {
 
     @Override
     public double sacar(double valor) {
-        if(Pessoa.JURIDICA.equals(this.pessoa)){
+        temSaldo(valor);
+        if(Pessoa.JURIDICA.equals(this.cliente.getPessoa())){
             return this.saldo-= valor + (valor * 0.005);
         }
         return this.saldo-=valor;
@@ -32,8 +31,8 @@ public class ContaCorrente implements Conta {
 
     @Override
     public double transferencia(double valor, Conta contaDestino) {
-        if (temSaldo(valor) && Pessoa.JURIDICA.equals(this.pessoa)){
-            sacar(valor + (valor * 0.02));
+        if (temSaldo(valor) && Pessoa.JURIDICA.equals(this.cliente.getPessoa())){
+            sacar(valor + (valor * 0.005));
             contaDestino.depositar(valor);
             return this.saldo-= valor + (valor * 0.005);
         } else if (temSaldo(valor)) {

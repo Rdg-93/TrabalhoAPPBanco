@@ -4,7 +4,6 @@ public class ContaPoupanca implements Conta{
 
     private static int Nconta = 1;
     private Cliente cliente;
-    private Pessoa pessoa;
 
     private double saldo;
 

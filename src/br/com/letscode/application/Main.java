@@ -18,7 +18,7 @@ public class Main {
         banco.adicionaConta(conta);
         banco.adicionaConta(conta2);
         System.out.println("Os Clientes do banco são : " + banco.listar());
-        double s = conta.depositar(200.00);
+        double s = conta.investir(200.00);
         System.out.println("O Saldo agora é :" + s);
         double c = conta2.investir(100.00);
         System.out.println("O Saldo agora é :" + c);
@@ -28,9 +28,6 @@ public class Main {
         System.out.println("O Saldo agora e :" + r);
         System.out.println("O saldo total é : " + conta2.consultarSaldo());
         System.out.println("O saldo total é : " + conta.consultarSaldo());
-
-
-
 
     }
 }

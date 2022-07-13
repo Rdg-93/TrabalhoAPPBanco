@@ -2,7 +2,6 @@ package br.com.letscode.model;
 
 public class ContaInvestimento implements Conta{
 
-    private Pessoa pessoa;
     private Cliente cliente;
     private static int Nconta = 1;
 
@@ -19,7 +18,8 @@ public class ContaInvestimento implements Conta{
 
     @Override
     public double sacar(double valor) {
-        if(Pessoa.JURIDICA.equals(this.pessoa)){
+
+        if(Pessoa.JURIDICA.equals(this.cliente.getPessoa())){
             return this.saldo-= valor + (valor * 0.005);
         }
         return this.saldo-=valor;
@@ -33,7 +33,7 @@ public class ContaInvestimento implements Conta{
 
     @Override
     public double transferencia(double valor, Conta contaDestino) {
-      if (temSaldo(valor) && Pessoa.JURIDICA.equals(this.pessoa)){
+      if (temSaldo(valor) && Pessoa.JURIDICA.equals(this.cliente.getPessoa())){
             sacar(valor + (valor * 0.005));
             contaDestino.depositar(valor);
             return this.saldo-= valor + (valor * 0.005);
@@ -47,8 +47,8 @@ public class ContaInvestimento implements Conta{
 
     @Override
     public double investir(double valor) {
-        if(Pessoa.JURIDICA.equals(this.pessoa)){
-            return this.saldo+= valor + (valor * 00.2);
+        if(Pessoa.JURIDICA.equals(this.cliente.getPessoa())){
+            return this.saldo+= valor + (valor * 0.02);
         }
         return this.saldo += valor;
     }
