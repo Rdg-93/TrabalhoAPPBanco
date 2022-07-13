@@ -21,7 +21,6 @@ public class ContaFactory {
         return new ContaCorrente(cliente);
     }
 
-
     public static Conta criarContaInvestimento(Cliente cliente){
         return new ContaInvestimento(cliente);
     }

@@ -18,7 +18,7 @@ public class ContaInvestimento implements Conta{
 
     @Override
     public double sacar(double valor) {
-
+        temSaldo(valor);
         if(Pessoa.JURIDICA.equals(this.cliente.getPessoa())){
             return this.saldo-= valor + (valor * 0.005);
         }
