@@ -12,22 +12,22 @@ public class Main {
         Conta conta = ContaFactory.criarContaInvestimento(cliente);
         Conta conta2 = ContaFactory.criarContaCorrente(cliente2);
         int i = conta.abrirConta();
-        System.out.println("O Número da conta é:" + i);
+        System.out.println("O Numero da conta e:" + i);
         int e = conta2.abrirConta();
-        System.out.println("O Número da conta é:" + e);
+        System.out.println("O Numero da conta e:" + e);
         banco.adicionaConta(conta);
         banco.adicionaConta(conta2);
         System.out.println("Os Clientes do banco são : " + banco.listar());
         double s = conta.investir(200.00);
-        System.out.println("O Saldo agora é :" + s);
+        System.out.println("O Saldo agora e :" + s);
         double c = conta2.investir(100.00);
-        System.out.println("O Saldo agora é :" + c);
+        System.out.println("O Saldo agora e :" + c);
         double t = conta.transferencia(50.0,conta2);
-        System.out.println("O Saldo agora é :" + t);
+        System.out.println("O Saldo agora e :" + t);
         double r = conta.sacar(50.00);
         System.out.println("O Saldo agora e :" + r);
-        System.out.println("O saldo total é : " + conta2.consultarSaldo());
-        System.out.println("O saldo total é : " + conta.consultarSaldo());
+        System.out.println("O saldo total e : " + conta2.consultarSaldo());
+        System.out.println("O saldo total e : " + conta.consultarSaldo());
 
     }
 }
